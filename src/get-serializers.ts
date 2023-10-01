@@ -8,7 +8,7 @@ export type AvroTreeKeyCacheOptions<TValue extends object> = Pick<
 	'treeSerializer' | 'valueSerializer'
 >;
 
-export function getavrojsSerializers<TValue extends object>(
+export function getAvroSerializers<TValue extends object>(
 	schema: Schema,
 ): AvroTreeKeyCacheOptions<TValue> {
 	return {

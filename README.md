@@ -11,34 +11,31 @@ avro tree serializer fot tree-key-cache
 ## How to Install
 
 ```
-npm i nodejs-tree-key-cache-avro
+npm i @tree-key-cache/avro
 ```
 
 
 ## How to use it
 
-First, declare the proto file for the object you want to be the cache value:
-
-```proto
-syntax = "proto3";
-package codibre.test_value;
-
-message Value {
-  int32 value = 1;
-}
-```
-
-Then, instantiate TreeKeyCache passing the proto path to **getavrojsSerializers** with the full lookup type path:
+Instantiate TreeKeyCache passing your schema to **getAvroSerializers** with the full lookup type path:
 
 ```ts
-const protoPath = join(process.cwd(), 'proto/value.proto');
-const lookupType = 'codibre.test_value.Value';
+const schema: Schema = {
+	name: 'Test',
+	type: 'record',
+	fields: [
+		{
+			name: 'value',
+			type: 'int',
+		},
+	],
+};
 
-target = new TreeKeyCache<{ value: number }, Uint8Array>(
+target = new TreeKeyCache<{ value: number }, string>(
 			map,
 			{
 				keyLevelNodes: 4,
-				...(await getavrojsSerializers(protoPath, lookupType)),
+				...(await getAvroSerializers(schema, lookupType)),
 			},
 		);
 ```

@@ -1,4 +1,4 @@
-import { getavrojsSerializers } from 'src/get-serializers';
+import { getAvroSerializers } from 'src/get-serializers';
 import { Step, Tree, TreeKeyCache, TreeKeys } from 'tree-key-cache';
 import { promisify } from 'util';
 import { AvroValueSerializer } from 'src/value-serializer';
@@ -59,7 +59,7 @@ describe(TreeKeyCache.name, () => {
 
 		target = new TreeKeyCache<{ value: number }, string>(map, {
 			keyLevelNodes: 4,
-			...getavrojsSerializers(schema),
+			...getAvroSerializers(schema),
 		});
 	});
 
