@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.1...v0.1.2) (2023-10-02)
+
+
+### Bug Fixes
+
+* fixing index export ([6481287](https://github.com/codibre/nodejs-tree-key-cache-avro/commit/6481287a57ecdfafb9e8d468983d53f34c606850))
+
 ## [0.1.1](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.0...v0.1.1) (2023-10-01)
 
 
