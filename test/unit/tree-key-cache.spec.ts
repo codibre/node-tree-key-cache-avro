@@ -1,8 +1,10 @@
-import { getAvroSerializers } from 'src/get-serializers';
+import {
+	getAvroSerializers,
+	AvroValueSerializer,
+	AvroTreeSerializer,
+} from '../../src';
 import { Step, Tree, TreeKeyCache, TreeKeys } from 'tree-key-cache';
 import { promisify } from 'util';
-import { AvroValueSerializer } from 'src/value-serializer';
-import { AvroTreeSerializer } from 'src/tree-serializer';
 import { loadAvroType } from 'src/load-avro-type';
 import { Schema } from 'avsc/types';
 
