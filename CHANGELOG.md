@@ -1,3 +1,10 @@
+## [0.1.3](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.2...v0.1.3) (2023-10-03)
+
+
+### Bug Fixes
+
+* exporting Schema from avsc for convenience ([9bac928](https://github.com/codibre/nodejs-tree-key-cache-avro/commit/9bac9283fde5b8e62e490abc8600bca6343d1e8c))
+
 ## [0.1.2](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.1...v0.1.2) (2023-10-02)
 
 
