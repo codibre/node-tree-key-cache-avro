@@ -1,3 +1,10 @@
+## [0.1.6](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.5...v0.1.6) (2023-10-04)
+
+
+### Bug Fixes
+
+* removing record methods for less memory use ([584f6d4](https://github.com/codibre/nodejs-tree-key-cache-avro/commit/584f6d4d03bb7950681ae21f1cb4a7d9d37ac7cb))
+
 ## [0.1.5](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.4...v0.1.5) (2023-10-04)
 
 
