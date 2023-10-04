@@ -7,10 +7,10 @@ export class AvroSerializer<TValue extends object>
 	protected constructor(private readonly type: Type) {}
 
 	serialize(a: TValue): string {
-		return this.type.toString(a);
+		return this.type.toBuffer(a).toString();
 	}
 
 	deserialize(b: string): TValue {
-		return this.type.fromString(b) as TValue;
+		return this.type.fromBuffer(Buffer.from(b)) as TValue;
 	}
 }
