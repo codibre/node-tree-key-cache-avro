@@ -1,3 +1,10 @@
+## [0.1.4](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.3...v0.1.4) (2023-10-04)
+
+
+### Bug Fixes
+
+* fixing avro serialization ([aa72ac1](https://github.com/codibre/nodejs-tree-key-cache-avro/commit/aa72ac1de01daf72bdd27f752f509009b49ed37f))
+
 ## [0.1.3](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.2...v0.1.3) (2023-10-03)
 
 
