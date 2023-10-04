@@ -11,6 +11,6 @@ export class AvroSerializer<TValue extends object>
 	}
 
 	deserialize(b: Buffer): TValue {
-		return this.type.fromBuffer(b) as TValue;
+		return this.type.decode(b).value as TValue;
 	}
 }
