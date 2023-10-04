@@ -1,3 +1,10 @@
+## [0.1.5](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.4...v0.1.5) (2023-10-04)
+
+
+### Bug Fixes
+
+* fixing value serializer to generate valid buffer ([599cc31](https://github.com/codibre/nodejs-tree-key-cache-avro/commit/599cc31ab42b15c7a0ed4ad408e02e57f42c8b7f))
+
 ## [0.1.4](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.3...v0.1.4) (2023-10-04)
 
 
