@@ -2,15 +2,15 @@ import { Type } from 'avsc/types';
 import { Serializer } from 'tree-key-cache';
 
 export class AvroSerializer<TValue extends object>
-	implements Serializer<TValue, string>
+	implements Serializer<TValue, Buffer>
 {
 	protected constructor(private readonly type: Type) {}
 
-	serialize(a: TValue): string {
-		return this.type.toBuffer(a).toString();
+	serialize(a: TValue): Buffer {
+		return this.type.toBuffer(a);
 	}
 
-	deserialize(b: string): TValue {
-		return this.type.fromBuffer(Buffer.from(b)) as TValue;
+	deserialize(b: Buffer): TValue {
+		return this.type.fromBuffer(b) as TValue;
 	}
 }

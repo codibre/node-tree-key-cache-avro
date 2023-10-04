@@ -32,7 +32,7 @@ class MyValueSerializer extends AvroValueSerializer<{ value: number }> {
 
 describe(TreeKeyCache.name, () => {
 	let target: TreeKeyCache<{ value: number }>;
-	let map: Map<string, string>;
+	let map: Map<string, Buffer>;
 	let valueSerializer: MyValueSerializer;
 	let treeSerializer: AvroTreeSerializer;
 
@@ -55,11 +55,11 @@ describe(TreeKeyCache.name, () => {
 							},
 						},
 					},
-				} as Tree<string>),
+				} as Tree<Buffer>),
 			],
 		]);
 
-		target = new TreeKeyCache<{ value: number }, string>(map, {
+		target = new TreeKeyCache<{ value: number }, Buffer>(map, {
 			keyLevelNodes: 4,
 			...getAvroSerializers(schema),
 		});
@@ -373,7 +373,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -418,7 +418,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -474,7 +474,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -509,7 +509,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -544,7 +544,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -585,7 +585,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -617,7 +617,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -649,7 +649,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -681,7 +681,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -763,7 +763,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],
@@ -836,7 +836,7 @@ describe(TreeKeyCache.name, () => {
 									},
 								},
 							},
-						} as Tree<string>),
+						} as Tree<Buffer>),
 					],
 					['a:b:c', valueSerializer.serialize({ value: 30 })],
 					['a:b', valueSerializer.serialize({ value: 20 })],

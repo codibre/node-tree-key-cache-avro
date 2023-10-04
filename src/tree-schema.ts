@@ -7,7 +7,7 @@ export const treeSchema: Schema = {
 	fields: [
 		{
 			name: TreeKeys.value,
-			type: ['null', 'string'],
+			type: ['null', 'bytes'],
 			default: null,
 		},
 		{

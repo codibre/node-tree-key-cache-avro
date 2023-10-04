@@ -6,22 +6,22 @@ import { treeSchema } from 'src/tree-schema';
 describe('avro', () => {
 	it('should convert tree to proto and the other way around', async () => {
 		const tree = {
-			[TreeKeys.value]: Buffer.from([0, 1, 2]).toString(),
+			[TreeKeys.value]: Buffer.from([0, 1, 2]),
 			[TreeKeys.children]: {
 				a: {
-					[TreeKeys.value]: Buffer.from([3, 4]).toString(),
+					[TreeKeys.value]: Buffer.from([3, 4]),
 					[TreeKeys.children]: {
 						a1: {
-							[TreeKeys.value]: Buffer.from([5, 6]).toString(),
+							[TreeKeys.value]: Buffer.from([5, 6]),
 							[TreeKeys.children]: null,
 						},
 					},
 				},
 				b: {
-					[TreeKeys.value]: Buffer.from([5, 6]).toString(),
+					[TreeKeys.value]: Buffer.from([5, 6]),
 					[TreeKeys.children]: {
 						b1: {
-							[TreeKeys.value]: Buffer.from([7, 8]).toString(),
+							[TreeKeys.value]: Buffer.from([7, 8]),
 							[TreeKeys.children]: null,
 						},
 					},
@@ -34,11 +34,13 @@ describe('avro', () => {
 		const decoded = type.fromBuffer(encoded);
 
 		expect(tree).toEqual(decoded);
-		tree[TreeKeys.value] = '12';
-		tree[TreeKeys.children].a[TreeKeys.value] = '34';
-		tree[TreeKeys.children].b[TreeKeys.value] = '56';
-		tree[TreeKeys.children].a[TreeKeys.children].a1[TreeKeys.value] = '56';
-		tree[TreeKeys.children].b[TreeKeys.children].b1[TreeKeys.value] = '78';
+		tree[TreeKeys.value] = Buffer.from([1, 2]);
+		tree[TreeKeys.children].a[TreeKeys.value] = Buffer.from([3, 4]);
+		tree[TreeKeys.children].b[TreeKeys.value] = Buffer.from([5, 6]);
+		tree[TreeKeys.children].a[TreeKeys.children].a1[TreeKeys.value] =
+			Buffer.from([5, 6]);
+		tree[TreeKeys.children].b[TreeKeys.children].b1[TreeKeys.value] =
+			Buffer.from([7, 8]);
 		const originalLength = JSON.stringify(tree).length;
 		expect(encoded.length).toBeLessThan(originalLength);
 		const zippedLength = gzipSync(encoded).length;
