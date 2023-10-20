@@ -7,10 +7,10 @@ export class AvroValueSerializer<
 > extends AvroSerializer<TValue> {
 	static getInstance<TValue extends object>(
 		schema: Schema,
-		readerSchema: Schema | undefined,
+		previousSchemas: Schema[] | undefined,
 	) {
-		const { type, resolver } = loadAvroType(schema, readerSchema);
+		const { type, resolvers } = loadAvroType(schema, previousSchemas);
 
-		return new AvroValueSerializer<TValue>(type, resolver);
+		return new AvroValueSerializer<TValue>(type, resolvers);
 	}
 }

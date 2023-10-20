@@ -6,7 +6,7 @@ export class AvroSerializer<TValue extends object>
 {
 	protected constructor(
 		private readonly type: Type,
-		private readonly resolver?: Resolver,
+		private readonly resolvers: Resolver[],
 	) {}
 
 	serialize(a: TValue): Buffer {
@@ -14,6 +14,17 @@ export class AvroSerializer<TValue extends object>
 	}
 
 	deserialize(b: Buffer): TValue {
-		return this.type.decode(b, 0, this.resolver).value as TValue;
+		let result = this.type.decode(b).value as TValue | undefined;
+		let { length: idx } = this.resolvers;
+		while (result === undefined && idx > 0) {
+			idx--;
+			result = this.type.decode(b, 0, this.resolvers[idx]).value as
+				| TValue
+				| undefined;
+		}
+		if (result === undefined) {
+			throw new Error('Could not deserialize buffer');
+		}
+		return result;
 	}
 }

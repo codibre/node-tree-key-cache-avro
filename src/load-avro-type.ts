@@ -2,14 +2,18 @@ import { Resolver, Schema, Type } from 'avsc';
 
 export function loadAvroType(
 	avroSchema: Schema,
-	previousSchema?: Schema,
-): { type: Type; resolver: Resolver | undefined } {
+	previousSchemas: Schema[] | undefined,
+): { type: Type; resolvers: Resolver[] } {
 	const type = Type.forSchema(avroSchema, {
 		omitRecordMethods: true,
 	});
-	const resolver = previousSchema
-		? type.createResolver(Type.forSchema(previousSchema))
-		: undefined;
+	const resolvers: Resolver[] = [];
+	if (previousSchemas) {
+		for (const previousSchema of previousSchemas) {
+			const resolver = type.createResolver(Type.forSchema(previousSchema));
+			resolvers.push(resolver);
+		}
+	}
 
-	return { type, resolver };
+	return { type, resolvers };
 }

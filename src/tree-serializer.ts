@@ -5,8 +5,8 @@ import { treeSchema } from './tree-schema';
 
 export class AvroTreeSerializer extends AvroSerializer<Tree<Buffer>> {
 	static getInstance() {
-		const { type, resolver } = loadAvroType(treeSchema);
+		const { type, resolvers } = loadAvroType(treeSchema, undefined);
 
-		return new AvroTreeSerializer(type, resolver);
+		return new AvroTreeSerializer(type, resolvers);
 	}
 }

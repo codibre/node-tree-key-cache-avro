@@ -12,10 +12,10 @@ export type AvroTreeKeyCacheOptions<TValue extends object> = Required<
 
 export function getAvroSerializers<TValue extends object>(
 	schema: Schema,
-	previousSchema?: Schema,
+	previousSchemas?: Schema[],
 ): AvroTreeKeyCacheOptions<TValue> {
 	return {
 		treeSerializer: AvroTreeSerializer.getInstance(),
-		valueSerializer: AvroValueSerializer.getInstance(schema, previousSchema),
+		valueSerializer: AvroValueSerializer.getInstance(schema, previousSchemas),
 	};
 }
