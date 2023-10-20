@@ -5,7 +5,6 @@ import {
 } from '../../src';
 import { Step, Tree, TreeKeyCache, TreeKeys } from 'tree-key-cache';
 import { promisify } from 'util';
-import { loadAvroType } from 'src/load-avro-type';
 import { Schema } from 'avsc/types';
 
 const delay = promisify(setTimeout);
@@ -25,8 +24,7 @@ const schema: Schema = {
 
 class MyValueSerializer extends AvroValueSerializer<{ value: number }> {
 	static load() {
-		const valueProto = loadAvroType(schema);
-		return MyValueSerializer.getInstance<{ value: number }>(valueProto);
+		return MyValueSerializer.getInstance<{ value: number }>(schema, undefined);
 	}
 }
 
