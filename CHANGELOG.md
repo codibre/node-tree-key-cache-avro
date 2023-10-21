@@ -1,3 +1,10 @@
+## [0.1.7](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.6...v0.1.7) (2023-10-21)
+
+
+### Bug Fixes
+
+* supporting old schema for retrocompatibility ([e436d07](https://github.com/codibre/nodejs-tree-key-cache-avro/commit/e436d07342f1c301168bd3af7832da6401b20d07))
+
 ## [0.1.6](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.5...v0.1.6) (2023-10-04)
 
 
