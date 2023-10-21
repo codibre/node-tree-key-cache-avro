@@ -1,3 +1,10 @@
+## [0.1.8](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.7...v0.1.8) (2023-10-21)
+
+
+### Bug Fixes
+
+* completing README and adding tsdocs ([006a510](https://github.com/codibre/nodejs-tree-key-cache-avro/commit/006a5104d1c49da2c47cf43bf094e81c1030a1ef))
+
 ## [0.1.7](https://github.com/codibre/nodejs-tree-key-cache-avro/compare/v0.1.6...v0.1.7) (2023-10-21)
 
 
