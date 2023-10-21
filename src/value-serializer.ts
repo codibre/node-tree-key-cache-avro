@@ -5,9 +5,12 @@ import { AvroSerializer } from './serializer';
 export class AvroValueSerializer<
 	TValue extends object,
 > extends AvroSerializer<TValue> {
-	static getInstance<TValue extends object>(schema: Schema) {
-		const type = loadAvroType(schema);
+	static getInstance<TValue extends object>(
+		schema: Schema,
+		previousSchemas: Schema[] | undefined,
+	) {
+		const { type, resolvers } = loadAvroType(schema, previousSchemas);
 
-		return new AvroValueSerializer<TValue>(type);
+		return new AvroValueSerializer<TValue>(type, resolvers);
 	}
 }

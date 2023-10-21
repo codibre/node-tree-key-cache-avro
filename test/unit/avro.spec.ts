@@ -28,7 +28,7 @@ describe('avro', () => {
 				},
 			},
 		};
-		const type = loadAvroType(treeSchema);
+		const { type } = loadAvroType(treeSchema, undefined);
 
 		const encoded = type.toBuffer(tree);
 		const decoded = type.fromBuffer(encoded);
